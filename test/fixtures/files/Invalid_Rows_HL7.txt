@@ -1,0 +1,4 @@
+Alan Turing|1912-06-23|M|REF-2024-100
+8480-6|130|mmHg
+9999-9|42|units
+8867-4|not-a-number|bpm

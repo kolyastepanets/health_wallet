@@ -1,0 +1,44 @@
+<% if @lab_import.pending? || @lab_import.processing? %>
+  <% content_for :head do %>
+    <meta http-equiv="refresh" content="3">
+  <% end %>
+<% end %>
+
+<div class="lab-import-detail">
+  <div class="lab-import-header">
+    <%= link_to "← Back to Imports", lab_imports_path, class: "back-link" %>
+    <h1><%= @lab_import.filename %></h1>
+  </div>
+
+  <div class="lab-import-info">
+    <div class="info-item">
+      <span class="info-label">Status</span>
+      <span class="info-value">
+        <span class="status-badge status-<%= @lab_import.status %>"><%= @lab_import.status %></span>
+      </span>
+    </div>
+    <div class="info-item">
+      <span class="info-label">Uploaded</span>
+      <span class="info-value"><%= @lab_import.created_at.to_fs(:short) %></span>
+    </div>
+  </div>
+
+  <% if @lab_import.failed? && @lab_import.error_message.present? %>
+    <div class="flash-alert">Import failed: <%= @lab_import.error_message %></div>
+  <% end %>
+
+  <% if @lab_import.completed? %>
+    <div class="lab-import-summary">
+      <h2>Import summary</h2>
+      <table class="summary-table">
+        <tbody>
+          <tr><th>Patients created</th><td><%= @lab_import.result["patients_created"] %></td></tr>
+          <tr><th>Assessments created</th><td><%= @lab_import.result["assessments_created"] %></td></tr>
+          <tr><th>Observations created</th><td><%= @lab_import.result["observations_created"] %></td></tr>
+          <tr><th>Observations updated</th><td><%= @lab_import.result["observations_updated"] %></td></tr>
+          <tr><th>Observations skipped</th><td><%= @lab_import.result["observations_skipped"] %></td></tr>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+</div>
