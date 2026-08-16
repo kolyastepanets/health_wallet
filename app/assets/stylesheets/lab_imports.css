@@ -1,0 +1,136 @@
+/* Lab Result Imports */
+.lab-imports-list,
+.lab-import-detail {
+  max-width: var(--container-max-width);
+  margin: var(--spacing-2xl) auto;
+  padding: 0 20px;
+  font-family: var(--font-family);
+}
+
+.lab-imports-header,
+.lab-import-header {
+  margin-bottom: var(--spacing-lg);
+}
+
+.lab-imports-header h1,
+.lab-import-header h1 {
+  color: var(--color-text-primary);
+  font-size: 28px;
+  font-weight: 600;
+  margin: var(--spacing-sm) 0;
+}
+
+.lab-import-hint {
+  color: var(--color-text-muted);
+  font-size: 14px;
+  margin-bottom: var(--spacing-lg);
+}
+
+.lab-imports-table,
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-white);
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: var(--spacing-md);
+}
+
+.lab-imports-table thead {
+  background: var(--color-header-bg);
+}
+
+.lab-imports-table th {
+  color: var(--color-white);
+  font-weight: 500;
+  text-align: left;
+  padding: 14px var(--spacing-md);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.lab-imports-table td,
+.summary-table th,
+.summary-table td {
+  padding: 14px var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  font-size: 14px;
+}
+
+.lab-imports-table tbody tr:hover {
+  background: var(--color-bg-hover);
+}
+
+.summary-table th {
+  text-align: left;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.lab-import-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.lab-import-link:hover {
+  text-decoration: underline;
+}
+
+/* Status badges */
+.status-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: var(--radius-xl);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-pending    { background: #fdf2d7; color: #9a7d0a; }
+.status-processing { background: #d6eaf8; color: #21618c; }
+.status-completed  { background: #d5f5e3; color: #1e8449; }
+.status-failed     { background: #fadbd8; color: #a93226; }
+
+/* Upload form */
+.lab-import-form .form-field {
+  margin-bottom: var(--spacing-lg);
+}
+
+.lab-import-form label {
+  display: block;
+  color: var(--color-text-primary);
+  font-weight: 500;
+  margin-bottom: var(--spacing-sm);
+}
+
+.lab-import-summary {
+  margin-top: var(--spacing-lg);
+}
+
+.lab-import-summary h2 {
+  color: var(--color-text-primary);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.flash-alert {
+  background: #fadbd8;
+  color: #a93226;
+  padding: 12px var(--spacing-md);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-lg);
+  font-size: 14px;
+}
+
+.no-lab-imports {
+  color: var(--color-text-muted);
+  padding: var(--spacing-xl);
+  text-align: center;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}

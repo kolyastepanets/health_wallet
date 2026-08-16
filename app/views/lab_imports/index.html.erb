@@ -1,0 +1,61 @@
+<% if @lab_imports.any? { |import| import.pending? || import.processing? } %>
+  <% content_for :head do %>
+    <meta http-equiv="refresh" content="3">
+  <% end %>
+<% end %>
+
+<div class="lab-imports-list">
+  <div class="lab-imports-header">
+    <%= link_to "← Home", root_path, class: "back-link" %>
+    <div class="header-row">
+      <h1>Lab Result Imports</h1>
+      <%= link_to "Import Lab Results", new_lab_import_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+
+  <% if notice %>
+    <div class="flash-notice"><%= notice %></div>
+  <% end %>
+
+  <% if @lab_imports.any? %>
+    <table class="lab-imports-table">
+      <thead>
+        <tr>
+          <th>File</th>
+          <th>Status</th>
+          <th>Summary</th>
+          <th>Uploaded</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @lab_imports.each do |import| %>
+          <tr>
+            <td><%= import.filename %></td>
+            <td><span class="status-badge status-<%= import.status %>"><%= import.status %></span></td>
+            <td><%= import_summary(import) %></td>
+            <td><%= import.created_at.to_fs(:short) %></td>
+            <td><%= link_to "Details", lab_import_path(import), class: "lab-import-link" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="pagination">
+      <% if @current_page > 1 %>
+        <%= link_to "← Previous", lab_imports_path(page: @current_page - 1), class: "pagination-link" %>
+      <% end %>
+
+      <span class="pagination-info">
+        Page <%= @current_page %> of <%= @total_pages %>
+      </span>
+
+      <% if @current_page < @total_pages %>
+        <%= link_to "Next →", lab_imports_path(page: @current_page + 1), class: "pagination-link" %>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="no-lab-imports">
+      No imports yet. <%= link_to "Upload a file", new_lab_import_path %> to get started.
+    </div>
+  <% end %>
+</div>
